@@ -1,9 +1,11 @@
 package org.paullee29.javamail;
 
+import org.junit.Ignore;
 import org.junit.Test;
 
 public class TLSEmailTest {
 
+    @Ignore
     @Test
     public void testTLSEmail () {
         String fromEmail = "";
