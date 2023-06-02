@@ -1,5 +1,7 @@
 package org.paullee29.javamail;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.paullee29.javamail.utilities.EmailUtil;
 
 import java.util.Properties;
@@ -16,10 +18,12 @@ public class TLSEmail {
      * Port for TLS/STARTTLS: 587
      */
 
+    private static final Logger LOGGER = LogManager.getLogger(TLSEmail.class.getName());
+
     public static void sendEmail(String fromEmail, String password, String toEmail, String host, String port, String subject, String message) {
 
 
-        System.out.println("TLSEmail Start");
+        LOGGER.info("TLSEmail Start");
         Properties props = new Properties();
         props.put("mail.smtp.host", host); //SMTP Host
         props.put("mail.smtp.port", port); //TLS Port

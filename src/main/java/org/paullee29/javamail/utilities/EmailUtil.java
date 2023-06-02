@@ -1,22 +1,14 @@
 package org.paullee29.javamail.utilities;
 
-import java.io.UnsupportedEncodingException;
-import java.util.Date;
-import java.util.logging.Logger;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
-import javax.activation.DataHandler;
-import javax.activation.DataSource;
-import javax.activation.FileDataSource;
-import javax.mail.BodyPart;
 import javax.mail.Message;
-import javax.mail.MessagingException;
-import javax.mail.Multipart;
 import javax.mail.Session;
 import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
-import javax.mail.internet.MimeBodyPart;
 import javax.mail.internet.MimeMessage;
-import javax.mail.internet.MimeMultipart;
+import java.util.Date;
 public class EmailUtil {
     /**
      * Utility method to send simple HTML email
@@ -26,7 +18,7 @@ public class EmailUtil {
      * @param body
      */
 
-    private final Logger LOGGER = LogManager.getLogger(this.getClass().getName());
+    private static final Logger LOGGER = LogManager.getLogger(EmailUtil.class.getName());
     public static void sendEmail(String fromEmail, Session session, String toEmail, String subject, String body){
         try
         {
@@ -47,13 +39,13 @@ public class EmailUtil {
             msg.setSentDate(new Date());
 
             msg.setRecipients(Message.RecipientType.TO, InternetAddress.parse(toEmail, false));
-            System.out.println("Message is ready");
+            LOGGER.info("Message is ready");
             Transport.send(msg);
 
-            System.out.println("EMail Sent Successfully!!");
+            LOGGER.info("EMail Sent Successfully!!");
         }
         catch (Exception e) {
-            e.printStackTrace();
+            LOGGER.error(e);
         }
     }
 }
