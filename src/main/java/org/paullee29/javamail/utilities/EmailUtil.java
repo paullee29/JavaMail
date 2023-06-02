@@ -1,4 +1,4 @@
-package com.kore.javamail.utilities;
+package org.paullee29.javamail.utilities;
 
 import java.io.UnsupportedEncodingException;
 import java.util.Date;

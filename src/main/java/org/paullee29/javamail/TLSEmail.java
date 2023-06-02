@@ -1,6 +1,6 @@
-package com.kore.javamail;
+package org.paullee29.javamail;
 
-import com.kore.javamail.utilities.EmailUtil;
+import org.paullee29.javamail.utilities.EmailUtil;
 
 import java.util.Properties;
 import javax.mail.Authenticator;

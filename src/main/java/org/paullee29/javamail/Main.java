@@ -1,4 +1,4 @@
-package com.kore.javamail;
+package org.paullee29.javamail;
 
 public class Main {
     public static void main(String[] args) {
